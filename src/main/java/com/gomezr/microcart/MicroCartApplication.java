@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MicroCartApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroCartApplication.class, args);
+		SpringApplication.run(MicroCartApplication.class, args).start();
 	}
 
 }

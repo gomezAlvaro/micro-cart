@@ -1,0 +1,126 @@
+databaseChangeLog:
+  - changeSet:
+      id: msrc-cart-start
+      author: gomezalv
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: cart_pk
+                  name: id
+                  type: bigint
+              - column:
+                  name: email
+                  type: VARCHAR2(255)
+            tableName: cart
+
+  - changeSet:
+      id: msrc-cart-start-2
+      author: gomezalv
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: cart_prod_pk
+                  name: id
+                  type: bigint
+              - column:
+                  name: product_id
+                  type: bigint
+              - column:
+                  name: cart_id
+                  type: bigint
+              - column:
+                  name: quantity
+                  type: bigint
+            tableName: cart_product
+
+  - changeSet:
+      id: msrc-cart-start-3
+      author: gomezalv
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: product_pk
+                  name: id
+                  type: bigint
+              - column:
+                  name: cart
+                  type: bigint
+              - column:
+                  name: name
+                  type: VARCHAR(500)
+            tableName: product
+
+  - changeSet:
+      id: msrc-cart-start-4
+      author: gomezalv
+      changes:
+        - insert:
+            tableName: cart
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: email
+                  value: "gomezr.alvaro@gmail.com"
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: name
+                  value: "FTL Device"
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: name
+                  value: "X-Wing"
+        - insert:
+            tableName: cart_product
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: cart_id
+                  value: "1"
+              - column:
+                  name: product_id
+                  value: "1"
+              - column:
+                  name: quantity
+                  value: "1"
+        - insert:
+            tableName: cart_product
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: cart_id
+                  value: "1"
+              - column:
+                  name: product_id
+                  value: "2"
+              - column:
+                  name: quantity
+                  value: "1"
+
