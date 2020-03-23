@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @AllArgsConstructor
 public class CartController {
-    private CartRepository cartRepository;
+    private CartService cartService;
 
     @ResponseStatus(value = HttpStatus.OK)
     @GetMapping("/cart/{id}")
-    public Cart getCart(@PathVariable Long id) {
-        return cartRepository.findById(id).get();
+    public CartDto getCart(@PathVariable Long id) {
+        return cartService.getCart(id);
     }
 }
